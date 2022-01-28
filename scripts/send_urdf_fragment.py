@@ -1,4 +1,4 @@
-#!/usr/bin/python2
+#!/usr/bin/python
 
 # Copyright (c) 2013-2015, Rethink Robotics
 # All rights reserved.
@@ -32,15 +32,15 @@ import sys
 import argparse
 
 import rospy
-import xacro_jade
+import xacro
 
 from baxter_core_msgs.msg import (
     URDFConfiguration,
 )
 
 def xacro_parse(filename):
-    doc = xacro_jade.parse(None, filename)
-    xacro_jade.process_doc(doc, in_order=True)
+    doc = xacro.parse(None, filename)
+    xacro.process_doc(doc, in_order=True)
     return doc.toprettyxml(indent='  ')
 
 def send_urdf(parent_link, root_joint, urdf_filename):
